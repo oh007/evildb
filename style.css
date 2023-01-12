@@ -1,0 +1,40 @@
+body {
+    background-image: url("evils.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+   }
+
+.main-container{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: auto;
+}
+.add-form{
+    color:#ffff;
+    background-color: #cccccc;
+    float: left;
+    width: 33.33%;
+    
+}
+.li-scientist{
+    color:#ffff;
+    background-color: #cccccc;
+    float: left;
+    width: 33.33%;
+}
+.current-scientist{
+    color:#ffff;
+    background-color: #cccccc;
+    float: left;
+    width: 33.33%;
+}
+/* Media for phones */
+   @media (max-width: 480px) {
+    body {
+        background-image: url("evils.jpeg");
+        background-repeat: no-repeat;
+        background-size: 100vh;
+       }
+  }
