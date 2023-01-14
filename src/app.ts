@@ -37,6 +37,8 @@ addBtn.addEventListener("click", function(e){
     sciDesc.value= "";
     mainC.innerHTML="";
     printcard();
+
+    
 });
 
 
@@ -44,16 +46,42 @@ addBtn.addEventListener("click", function(e){
 
 let printcard = function() {
     let length =  scientist.length;
-    
     for(let i = 0; i < length; i++) {
         let div1 = document.createElement('div') as HTMLDivElement;
         let namnH1 = document.createElement('h1') as HTMLHeadingElement;
 
         namnH1.innerText = `${scientist[i].name}`;
-       
         div1.appendChild(namnH1);
         mainC.append(div1);
-       
+
+        
+        namnH1.addEventListener("click", function(e){
+            e.preventDefault();
+        
+            console.log("Hello!");
+            let ul = document.querySelector('.sci-ul') as HTMLElement;
+            const name = this.innerHTML;
+            for (let i = 0; i < scientist.length; i++) {
+            if (name === scientist[i].name) {
+               
+        
+                
+                let liHe = scientist[i].henchmen; 
+                let liDes = scientist[i].description;
+                let li = document.createElement('div') as HTMLElement;
+                let liName = document.createElement('h1') as HTMLHeadingElement;
+                let liAge = document.createElement('h1') as HTMLHeadingElement;
+                
+                liAge = scientist[i].age;
+                liName.innerHTML = scientist[i].name;
+                
+                ul.appendChild(li);
+                 }
+        }    })
+        
+
+        
     }
 
 }
+
