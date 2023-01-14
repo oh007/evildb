@@ -49,6 +49,7 @@ let printcard = function() {
     for(let i = 0; i < length; i++) {
         let div1 = document.createElement('div') as HTMLDivElement;
         let namnH1 = document.createElement('h1') as HTMLHeadingElement;
+        namnH1.className="sciH1"
 
         namnH1.innerText = `${scientist[i].name}`;
         div1.appendChild(namnH1);
