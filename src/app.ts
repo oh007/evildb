@@ -3,8 +3,8 @@ const addBtn = document.querySelector('.save-btn') as HTMLButtonElement;
 let mainC= document.querySelector('.scientist-list') as HTMLElement;
 type Scientist = {
     name: string,
-    age: number | string,
-    henchmen: number | string,
+    age: number,
+    henchmen: number,
     description: string,
 }
 
@@ -12,7 +12,7 @@ let scientist : Scientist[] = []
 
 const sciDiv= document.createElement("div");
 
-addBtn.addEventListener("click", function(e){
+addBtn.addEventListener("click", function(e):void{
     e.preventDefault();
     let sciName = document.querySelector('#fname') as HTMLInputElement;
     let sciAge = document.querySelector('#age') as HTMLInputElement;
@@ -25,8 +25,8 @@ addBtn.addEventListener("click", function(e){
 
     let arr:Scientist = {
         name: sciName.value,
-        age: sciAge.value,
-        henchmen: sciHench.value,
+        age: sciAge.valueAsNumber,
+        henchmen: sciHench.valueAsNumber,
         description: sciDesc.value,
     }
   
@@ -59,23 +59,18 @@ let printcard = function() {
             e.preventDefault();
         
             console.log("Hello!");
-            let ul = document.querySelector('.sci-ul') as HTMLElement;
             const name = this.innerHTML;
             for (let i = 0; i < scientist.length; i++) {
             if (name === scientist[i].name) {
-               
-        
-                
-                let liHe = scientist[i].henchmen; 
-                let liDes = scientist[i].description;
-                let li = document.createElement('div') as HTMLElement;
-                let liName = document.createElement('h1') as HTMLHeadingElement;
-                let liAge = document.createElement('h1') as HTMLHeadingElement;
-                
-                liAge = scientist[i].age;
-                liName.innerHTML = scientist[i].name;
-                
-                ul.appendChild(li);
+                const spanName = document.querySelector("span#name") as HTMLElement;
+                const spanAge = document.querySelector("span#age") as HTMLElement;
+                const spanHenchmen = document.querySelector("span#henchmen") as HTMLElement;
+                const spanDescription = document.querySelector("span#description") as HTMLElement;
+    
+                spanName.innerHTML = scientist[i].name;
+                spanAge.innerHTML = String(scientist[i].age);
+                spanHenchmen.innerHTML = String(scientist[i].henchmen);
+                spanDescription.innerHTML = scientist[i].description;
                  }
         }    })
         
